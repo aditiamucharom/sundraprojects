@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f2f2f7; /* Apple Grouped Background */
+  --foreground: #1c1c1e;
+  --card-bg: #ffffff;
+  --sidebar-bg: #f8f8fa;
+  --border-color: #e5e5ea;
+  --text-secondary: #8e8e93;
+  --apple-blue: #007aff;
+  --apple-blue-light: rgba(0, 122, 255, 0.1);
+  --apple-red: #ff3b30;
+  --apple-green: #34c759;
+  --apple-orange: #ff9500;
+  --apple-purple: #af52de;
+  --apple-yellow: #ffcc00;
+  --apple-gray: #8e8e93;
+  --apple-pink: #ff2d55;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+:root.dark {
+  --background: #000000; /* Pure black backdrop */
+  --foreground: #f2f2f7;
+  --card-bg: #1c1c1e; /* Apple Grouped Dark Card */
+  --sidebar-bg: #161618;
+  --border-color: #2c2c2e;
+  --text-secondary: #aeaeb2;
+  --apple-blue: #0a84ff;
+  --apple-blue-light: rgba(10, 132, 255, 0.15);
+  --apple-red: #ff453a;
+  --apple-green: #30d158;
+  --apple-orange: #ff9f0a;
+  --apple-purple: #bf5af2;
+  --apple-yellow: #ffd60a;
+  --apple-gray: #8e8e93;
+  --apple-pink: #ff375f;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card-bg);
+  --color-sidebar: var(--sidebar-bg);
+  --color-border-custom: var(--border-color);
+  --color-text-secondary: var(--text-secondary);
+  --color-apple-blue: var(--apple-blue);
+  --color-apple-blue-light: var(--apple-blue-light);
+  --color-apple-red: var(--apple-red);
+  --color-apple-green: var(--apple-green);
+  --color-apple-orange: var(--apple-orange);
+  --color-apple-purple: var(--apple-purple);
+  --color-apple-yellow: var(--apple-yellow);
+  --color-apple-gray: var(--apple-gray);
+  --color-apple-pink: var(--apple-pink);
+  
+  --shadow-custom-sm: var(--shadow-sm);
+  --shadow-custom-md: var(--shadow-md);
+  --shadow-custom-lg: var(--shadow-lg);
+
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+/* Custom Base Styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth custom scrollbars for that premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Native Dialog & Backdrop Styles from Guidance */
+dialog {
+  border: none;
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+  max-width: 90vw;
+  width: 500px;
+  padding: 0;
+  overflow: hidden;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  animation: backdrop-fade-in 0.2s ease-out;
+}
+
+.dark dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Animations */
+@keyframes backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+  background: rgba(28, 28, 30, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Apple-style bouncy animations */
+.bounce-hover {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.bounce-hover:hover {
+  transform: scale(1.02);
+}
+.bounce-hover:active {
+  transform: scale(0.98);
+}
