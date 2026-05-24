@@ -17,6 +17,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Sundra Project - Clean Workspace Manager",
   description: "A minimal, premium, Apple Reminders-styled project management application.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
@@ -44,4 +50,3 @@ export default function RootLayout({
     </html>
   );
 }
-
